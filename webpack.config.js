@@ -20,6 +20,9 @@ module.exports = {
     port: 8080,
     open: true
   },
+
+// webpack.config.js
+// ... previous settings
   module: {
     rules: [
       {
@@ -35,9 +38,15 @@ module.exports = {
             loader: "css-loader"
           },
         ],
-      }
+      },
+      {
+        // add the rule for processing files
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: "asset/resource"
+      },
     ]
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html"
